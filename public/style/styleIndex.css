@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*Cabelhaço */
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header {
+  position: fixed;
+  background-color: #00CED1;
+  width: 100%;
+  padding: 5px;
+  box-shadow: 15px -10px 20px black;
+  z-index: 2;
+}
+
+.logo {
+  padding-right: 10px;
+}
+
+.logo img {
+  padding: 2px;
+  max-width: 200px;
+  cursor: pointer;
+}
+
+.menu nav a {
+  display: inline-block;
+}
+
+.menu nav a {
+  padding: 10px 10px;
+  color: white;
+  text-decoration: none;
+  padding-right: 10px;
+  font-size: 17px;
+  border-radius: 30px;
+  transition: 0.6s;
+}
+
+.menu nav a:hover {
+  background-color: #00B5B7;
+}
+
+/*Fim do Cabelhaço*/
+
+/*Página Bem vindo*/
+#fund1 {
+  background-image: url("https://live.staticflickr.com/65535/52871027306_0e3a52f231_o.jpg");
+  height: 700px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+
+#inform1 {
+  padding-top: 330px;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 90px;
+}
+
+#subtit1 {
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+#inform2 {
+  padding-top: 50px;
+  position: static;
+  text-align: center;
+}
+
+#img1 {
+  max-width: 400px;
+  margin-right: 38%;
+  border-radius: 20px;
+}
+
+/*Fim da Página Bem vindo*/
+/*carrosel*/
+
+.slider {
+  display: block;
+  height: 30px;
+  width: 950px;
+  margin: auto;
+  margin-top: 20px;
+  position: relative;
+}
+
+.slider li {
+  list-style: none;
+  position: absolute;
+}
+
+.slider img {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  vertical-align: top;
+}
+
+.slider input {
+  display: none;
+}
+
+.slider label {
+  background-color: #ffffff;
+  bottom: 10px;
+  cursor: pointer;
+  display: block;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+  z-index: 10;
+}
+
+.slider li:nth-child(1) label {
+  left: 10px;
+}
+
+.slider li:nth-child(2) label {
+  left: 40px;
+}
+
+.slider li:nth-child(3) label {
+  left: 70px;
+}
+
+.slider img {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.slider li input:checked~img {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+}
+
+#espacoTemporario {
+  margin-top: 720px;
+
+}
+
+/*Inicio dos Livros*/
+h3 {
+  font-size: 55px;
+  padding-bottom: 10px;
+  color: #007d80;
+}
+
+h4,
+h5 {
+  font-size: 30px;
+  color: #003c3d;
+  padding-bottom: 50px;
+}
+
+.livros {
+  position: static;
+  margin-top: -480px;
+  text-align: center;
+}
+
+#DescL1{
+  position: relative;
+  top: -330px;
+  left: 40%;
+  width: 550px;
+  text-align: justify;
+}
+
+.img4_1 {
+  max-width: 260px;
+  margin-right: 42%;
+  border-radius: 20px;
+}
+
+.TitLiv {
+  font-size: 29px;
+  font-weight: bold;
+}
+
+.SpaceLiv {
+  margin-top: -250px;
+}
+
+.SpaceLiv2 {
+  margin-top: -200px;
+}
+
+.img5_2 {
+  max-width: 260px;
+  margin-left: 43%;
+  border-radius: 20px;
+}
+
+.DescL2 {
+  position: relative;
+  top: -330px;
+  left: 20%;
+  width: 550px;
+  text-align: justify;
+}
+
+.MDescL2 {
+  text-align: right;
+}
+
+.marginGen {
+  margin-top: -230px;
+}
+
+/*Fim dos Livros*/
+
+/*Rodapé*/
+footer {
+  display: flex;
+  background-color: #00CED1;
+  height: 300px;
+  width: 100%;
+}
+
+form {
+  padding-left: 200px;
+  flex-grow: 40%;
+  color: white;
+  padding-top: 40px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  color: #007d80;
+  padding-bottom: 5px;
+}
+
+#nome {
+  margin-bottom: 5px;
+}
+
+form .btn {
+  background-color: #098ba1;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  transition: all linear 160ms;
+  cursor: pointer;
+  padding: 10px;
+}
+
+form .btn:hover {
+  transform: scale(1.05);
+  background-color: #045664;
+}
+
+#nome {
+  margin-top: 5px;
+}
+
+#nome,
+#email {
+  padding: 6px;
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+#email {
+  margin-bottom: -50px;
+}
+
+#Devlop {
+  padding-top: 90px;
+  flex-grow: 60%;
+  color: white;
+  padding-left: 200px;
+}
+
+/*Fim Rodapé*/
+/* Responsividade para larguras entre 600px e 768px */
+@media  (min-width: 600px) and (max-width: 768px) {
+  /* Cabeçalho */
+  .menu nav a {
+    font-size: 14px;
+    padding: 8px 8px;
+  }
+  
+  /* Página Bem-vindo */
+  h1 {
+    font-size: 60px;
+  }
+  
+  #subtit1 {
+    font-size: 16px;
+  }
+  
+  #img1 {
+    max-width: 300px;
+    margin-right: 28%;
+  }
+  
+  /* Carrossel */
+  .slider {
+    width: 80%;
+  }
+  
+  .slider li label {
+    bottom: 5px;
+    height: 8px;
+    width: 8px;
+  }
+  
+  /* Livros */
+  h3 {
+    font-size: 40px;
+  }
+  
+  h4, h5 {
+    font-size: 24px;
+  }
+  
+  .img4_1, .img5_2 {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  
+  .DescL2 {
+    left: 10%;
+    width: 80%;
+  }
+  
+  /* Rodapé */
+  form {
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  #nome, #email {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  #email {
+    margin-bottom: 0;
+  }
+}
+@media(max-width){
+  #img1 {
+  width: 800px;
+  margin-right: 38%;
+  border-radius: 20px;
+  
+}
+}
+
+
+/* Listagem */
+
+#opt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#x {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border: 0;
+  background-color:red;
+  color:aliceblue;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+}
+
+#msg {
+  color: white;
+  width: 500px;
+  background-color:darkseagreen;
+  padding: 20px;
+}
+
+#tablelist {
+  width: 40%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+#tablelist th, #tablelist td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#tablelist th {
+  background-color: #f2f2f2;
+}
+
+#tablelist tr:hover {
+  background-color: #f5f5f5;
+}

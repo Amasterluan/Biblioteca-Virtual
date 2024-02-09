@@ -1,0 +1,21 @@
+{{#each result}} <!-- Faz um loop onde cada iteração pega um livro dentro de result -->
+<div>
+  <img class="img4_1" src="{{image}}">
+  <p id="DescL1">
+    <b class="TitLiv">{{titulo}}</b>
+    <br>
+    <b>Gêneros:</b> {{genero}}
+    <br>
+    <b>Autor(a):</b> {{autor}}
+    <br>
+    <b>Data de publicação:</b> {{ano}}
+    <br>
+    <br>
+    {{descricao}}
+    <br>
+    <br>
+    <a href="/favoritando?codigo={{codigo}}" onclick="return confirm('Deseja favoritar?')"><img src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" height="35" width="35"></a> 
+  </p>
+  <div id="SpaceLiv"></div>
+</div>                          
+{{/each}}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style/styleLogin.css" rel="stylesheet" />
+  <link href="https://seel-sp.org.br/site/wp-content/uploads/2019/04/Livro-Logo-SEEL.png" rel="icon" />
+  <title>Cadastro | Biblioteca</title>
+</head>
+<body>
+  <div class="page">
+    <form class="formLogin">
+        <h1>Cadastro</h1>
+        <br>
+        <label>Nome Completo
+            <br>
+            <input type="text" placeholder="Digite seu nome" autofocus="true" id="nome"/>
+          </label>
+          <label>CPF
+            <br>
+            <input type="text" placeholder="Digite seu CPF" id="cpf" maxlength="14"/>
+          </label>
+        <label>E-mail
+          <br>
+          <input type="email" placeholder="Digite seu e-mail" id="email"/>
+        </label>
+        
+        <label>Senha
+          <br>
+          <input type="password" placeholder="Digite sua senha" id="senha"/>
+        </label>
+        <a href="login.html">Fazer Login</a>
+        <a href="index.html">Voltar a pagina inicial</a>
+        <input type="button" value="Cadastrar" class="btn" id="botao"/>
+    </form>
+  </div>
+<script src="javascript/cadastroscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+@media(max-width:768px) {
+  #fund1 {
+    width: 995px;
+  }
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  background-color: #f0f0f0;
+}
+
+.video-container {
+  position:static;
+  width: 50%;
+  max-width: 600px;
+  padding-bottom: 60.25%; /* 16:9 aspect ratio */
+}
+
+iframe {
+  position: static;
+  width: 100%;
+  height: 100%;
+}

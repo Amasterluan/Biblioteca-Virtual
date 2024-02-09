@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/*Cabelhaço */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header {
+    position: fixed;
+    background-color: #00CED1;
+    width: 100%;
+    padding: 5px;
+    box-shadow: 15px -10px 20px black;
+    z-index: 2;
+}
+
+.logo {
+    padding-right: 10px;
+}
+
+.logo img {
+    padding: 2px;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+.menu nav a {
+    display: inline-block;
+}
+
+.menu nav a {
+    padding: 10px 10px;
+    color: white;
+    text-decoration: none;
+    padding-right: 10px;
+    font-size: 17px;
+    border-radius: 30px;
+    transition: 0.6s;
+}
+
+.menu nav a:hover {
+    background-color: #00B5B7;
+}
+/*Fim do Cabelhaço*/
+
+
+/*Inicio dos Livros*/
+#espaco{
+    padding-top: 120px;
+    padding-bottom: 50px;
+}
+
+h1 {
+    display: flex;
+    padding-left: 510px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: -55px;
+}
+#contLivro{
+    max-width: 1600px;
+    display: flex;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+#DescLivro{
+    padding-top: 50px;
+    padding-left: 50px;
+    text-align: justify;
+}
+  
+#imglivro{
+    left: 20px;
+    max-width: 260px;
+    border-radius: 20px;
+}
+/*Fim dos Livros*/
+
+
+/*Botão*/
+#botoes{
+    /*Botão Pai*/
+    display: flex;
+    margin-top: -110px;
+    padding-left: 510px;
+    margin-bottom: 180px;
+}
+
+#buy{
+    left: 20px;
+    top: -10px;
+    position: relative;
+}
+#quantidade{
+    width: 60px;
+    border-radius: 30px;
+}
+.btn {
+    background-color: #10bddb;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    transition: all linear 160ms;
+    cursor: pointer;
+    margin: 0;
+}
+  
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #0b8ca3;
+}
+
+input{
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 20px;
+    width: 250px;
+}
+/*Fim do Botão*/
+
+/*Rodapé*/
+footer {
+    display: flex;
+    background-color: #00CED1;
+    height: 300px;
+    width: 100%;
+}
+
+form {
+    padding-left: 200px;
+    flex-grow: 40%;
+    color: white;
+    padding-top: 40px;
+    text-align: center;
+}
+h2{
+    font-size: 30px;
+    color: #007d80;
+    padding-bottom: 5px;
+}
+#nome{
+    margin-bottom: 5px;
+}
+
+form .btn {
+    background-color: #098ba1;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    transition: all linear 160ms;
+    cursor: pointer;
+    padding: 10px;
+}
+  
+form .btn:hover {
+    transform: scale(1.05);
+    background-color: #045664;
+}
+                
+#nome{
+    margin-top: 5px;
+}
+#nome, #email{
+    padding: 6px;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid;
+}
+#email{
+    margin-bottom: -50px;
+}
+
+#Devlop{
+    padding-top: 90px;
+    flex-grow: 60%;
+    color: white;
+    padding-left: 200px;
+}
+/*Fim Rodapé*/

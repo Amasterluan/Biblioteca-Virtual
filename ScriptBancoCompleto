@@ -1,0 +1,189 @@
+-- --------------------------------------------------------
+-- Servidor:                     127.0.0.1
+-- Versão do servidor:           8.1.0 - MySQL Community Server - GPL
+-- OS do Servidor:               Win64
+-- HeidiSQL Versão:              12.1.0.6537
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- Copiando estrutura do banco de dados para bancolivraria
+CREATE DATABASE IF NOT EXISTS `bancolivraria` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `bancolivraria`;
+
+-- Copiando estrutura para tabela bancolivraria.autores
+CREATE TABLE IF NOT EXISTS `autores` (
+  `idautores` int NOT NULL AUTO_INCREMENT,
+  `nome_autor` varchar(100) NOT NULL,
+  `email_autor` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idautores`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- Copiando dados para a tabela bancolivraria.autores: ~19 rows (aproximadamente)
+INSERT IGNORE INTO `autores` (`idautores`, `nome_autor`, `email_autor`) VALUES
+	(1, 'Diana Wynne Jones', 'diana@example.com'),
+	(2, 'Aluísio Azevedo', 'Aluísio@example.com'),
+	(3, 'Matt Haig', 'MattHaig@example.com'),
+	(4, 'Colleen Hoover', 'Hoover@example.com'),
+	(5, 'Machado de Assis', 'MachadoAssis@example.com'),
+	(6, 'Mário de Andrade', 'MárioAndrade@example.com'),
+	(7, 'Martha Medeiros', 'Martha@example.com'),
+	(8, 'Joaquim Manuel de Macedo', 'JoaquimManuel@example.com'),
+	(9, 'Wu Cheng', 'WuCheng@example.com'),
+	(10, 'Jane Austen', 'janeausten@example.com'),
+	(11, 'Ayòbámi Adébáyò', 'ayobamiadebayo@example.com'),
+	(12, 'Julia Quinn', 'juliaquinn@example.com'),
+	(13, 'Erico Verissimo', 'ericoverissimo@example.com'),
+	(14, 'Tatiana Maciel e Cleo', 'tatianacleo@example.com'),
+	(15, 'Adam Silvera', 'adamsilvera@example.com'),
+	(16, 'Makoto Shinkai e Ranmaru Kotone', 'makotoranmaru@example.com'),
+	(17, 'Fujita', 'fujita@example.com'),
+	(18, 'Yoshitoki Oima', 'yoshitokioima@example.com'),
+	(19, 'Tsugumi Ohba e Takeshi Obata', 'tsugumitakeshi@example.com');
+
+-- Copiando estrutura para tabela bancolivraria.editora
+CREATE TABLE IF NOT EXISTS `editora` (
+  `ideditora` int NOT NULL AUTO_INCREMENT,
+  `nome_editora` varchar(100) DEFAULT NULL,
+  `CNPJ` varchar(45) DEFAULT NULL,
+  `email_editora` varchar(100) DEFAULT NULL,
+  `anofundacao` date DEFAULT NULL,
+  `telefone_editora` int DEFAULT NULL,
+  `endereco_editora` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ideditora`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- Copiando dados para a tabela bancolivraria.editora: ~9 rows (aproximadamente)
+INSERT IGNORE INTO `editora` (`ideditora`, `nome_editora`, `CNPJ`, `email_editora`, `anofundacao`, `telefone_editora`, `endereco_editora`) VALUES
+	(1, 'Edições Alvorada', '12345678901234', 'contato@edicoesalvorada.com', '1995-08-20', 993456789, 'Rua das Manhãs, 123'),
+	(2, 'Editora Estrela do Norte', '23456789012345', 'contato@estreladonorteeditora.com', '2000-04-10', 234567890, 'Avenida das Estrelas, 456'),
+	(3, 'Livros Harmonia', '34567890123456', 'contato@livrosharmonia.com', '2008-12-05', 995678901, 'Rua da Harmonia, 789'),
+	(4, 'Editorial Aurora', '45678901234567', 'contato@editorialaurora.com', '1990-06-15', 996789012, 'Avenida da Aurora, 1011'),
+	(5, 'Casa das Letras', '56789012345678', 'contato@casadasletras.com', '2012-10-25', 997890123, 'Rua da Casa, 1213'),
+	(6, 'Editora Páginas Douradas', '67890123456789', 'contato@paginasdouradaseditora.com', '2005-07-30', 978901234, 'Avenida Dourada, 1415'),
+	(7, 'Publicações Veredas', '78901234567890', 'contato@publicacoesveredas.com', '2017-03-18', 989012345, 'Rua das Veredas, 1617'),
+	(8, 'Palavras Mágicas Editora', '89012345678901', 'contato@palavrasmagicaseditora.com', '2010-11-22', 990123456, 'Avenida Mágica, 1819'),
+	(9, 'Editora colonial', '12345678901234', 'contato@editoracolonial.com', '1815-08-20', 993456789, 'Rua das Manhãs, 123');
+
+-- Copiando estrutura para tabela bancolivraria.favoritos
+CREATE TABLE IF NOT EXISTS `favoritos` (
+  `idfavoritos` int NOT NULL AUTO_INCREMENT,
+  `idusuarios` int NOT NULL,
+  `idlivros` int NOT NULL,
+  PRIMARY KEY (`idfavoritos`,`idusuarios`,`idlivros`),
+  KEY `fk_favoritos_usuarios_idx` (`idusuarios`),
+  KEY `fk_favoritos_livros1_idx` (`idlivros`),
+  CONSTRAINT `fk_favoritos_livros1` FOREIGN KEY (`idlivros`) REFERENCES `livros` (`idlivros`),
+  CONSTRAINT `fk_favoritos_usuarios` FOREIGN KEY (`idusuarios`) REFERENCES `usuarios` (`idusuarios`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- Copiando dados para a tabela bancolivraria.favoritos: ~0 rows (aproximadamente)
+
+-- Copiando estrutura para tabela bancolivraria.generos
+CREATE TABLE IF NOT EXISTS `generos` (
+  `idgeneros` int NOT NULL AUTO_INCREMENT,
+  `nome_genero` varchar(45) NOT NULL,
+  PRIMARY KEY (`idgeneros`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- Copiando dados para a tabela bancolivraria.generos: ~6 rows (aproximadamente)
+INSERT IGNORE INTO `generos` (`idgeneros`, `nome_genero`) VALUES
+	(1, 'Ficcao'),
+	(2, 'comedia'),
+	(3, 'Drama'),
+	(4, 'Romance'),
+	(5, 'Literatura de viagem'),
+	(6, 'Suspense');
+
+-- Copiando estrutura para tabela bancolivraria.historico
+CREATE TABLE IF NOT EXISTS `historico` (
+  `idlivros` int NOT NULL,
+  `idusuario` int NOT NULL,
+  `datacompra` date NOT NULL,
+  `metodopagamento` varchar(60) NOT NULL,
+  `total` decimal(10,0) NOT NULL,
+  PRIMARY KEY (`idlivros`,`idusuario`),
+  KEY `fk_livros_has_usuarios_usuarios1_idx` (`idusuario`),
+  KEY `fk_livros_has_usuarios_livros1_idx` (`idlivros`),
+  CONSTRAINT `fk_livros_has_usuarios_livros1` FOREIGN KEY (`idlivros`) REFERENCES `livros` (`idlivros`),
+  CONSTRAINT `fk_livros_has_usuarios_usuarios1` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuarios`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- Copiando dados para a tabela bancolivraria.historico: ~0 rows (aproximadamente)
+
+-- Copiando estrutura para tabela bancolivraria.livros
+CREATE TABLE IF NOT EXISTS `livros` (
+  `idlivros` int NOT NULL AUTO_INCREMENT,
+  `imagem` longtext,
+  `titulo_livro` varchar(100) NOT NULL,
+  `anopublicacao` date NOT NULL,
+  `descricao` longtext NOT NULL,
+  `estoque` int DEFAULT NULL,
+  `preco` decimal(10,0) DEFAULT NULL,
+  `idautor` int NOT NULL,
+  `idgeneros` int NOT NULL,
+  `ideditora` int NOT NULL,
+  PRIMARY KEY (`idlivros`,`idautor`,`idgeneros`,`ideditora`),
+  KEY `fk_livros_autor1_idx` (`idautor`),
+  KEY `fk_livros_generos1_idx` (`idgeneros`),
+  KEY `fk_livros_editora1_idx` (`ideditora`),
+  CONSTRAINT `fk_livros_autor1` FOREIGN KEY (`idautor`) REFERENCES `autores` (`idautores`),
+  CONSTRAINT `fk_livros_editora1` FOREIGN KEY (`ideditora`) REFERENCES `editora` (`ideditora`),
+  CONSTRAINT `fk_livros_generos1` FOREIGN KEY (`idgeneros`) REFERENCES `generos` (`idgeneros`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- Copiando dados para a tabela bancolivraria.livros: ~3 rows (aproximadamente)
+INSERT IGNORE INTO `livros` (`idlivros`, `imagem`, `titulo_livro`, `anopublicacao`, `descricao`, `estoque`, `preco`, `idautor`, `idgeneros`, `ideditora`) VALUES
+	(1, 'https://m.media-amazon.com/images/I/81JPLgU-EgS.jpg', 'O castelo Animado', '1986-08-01', 'A história segue a jornada da jovem Sophie Hatter, que é amaldiçoada por uma bruxa e se transforma em uma senhora idosa. Em busca de uma cura para a maldição, ela entra no Castelo Animado, uma misteriosa fortaleza que se move e é governada pelo mago Howl. Lá, ela faz amizade com Howl e seus companheiros excêntricos, e juntos enfrentam perigosas aventuras em um mundo de magia e mistério. A história é uma emocionante aventura repleta de humor, romance e reviravoltas inesperadas.', 50, 30, 1, 1, 9),
+	(2, 'https://www.lpm.com.br/livros/imagens/o_cortico_img_capa_newtec_9786556661629_hd.jpg', 'O cortico', '1990-09-05', 'O romance mostra  mazelas e a vida miserável dos moradores de duas habitações coletivas. João Romão é ganancioso comerciante de origem portuguesa, dono de um terreno na cidade do Rio de Janeiro onde constrói moradias de baixo custo para obter renda. Bertoleza, uma negra escrava, vive com ele e o ajuda no armazém que ele mantém no lugar. O cortiço é erguido aos poucos, para revolta do negociante Miranda, vizinho de João Romão. Os dois travam uma briga por causa da construção do cortiço. Assim, é mostrado as lutas entre os moradores, os embates com a polícia, a ganância de João em tornar-se rico às custas dos miseráveis a seu redor. ', 50, 40, 2, 4, 9),
+	(3, 'https://m.media-amazon.com/images/I/81iqH8dpjuL.jpg', 'A Biblioteca da Meia Noite', '2020-08-13', 'A história segue a jornada de Susan, uma jovem que luta contra a depressão e a ansiedade, e que encontra consolo em livros e histórias. Um dia, ela descobre uma biblioteca mágica, que só abre à meia-noite e que contém livros que mostram as vidas de todos os habitantes da cidade. Fascinada, Susan começa a ler as histórias das pessoas à sua volta e, com isso, acaba descobrindo segredos sombrios e perigosos. Quando um dos habitantes da cidade desaparece, Susan se junta a um grupo de leitores da biblioteca para investigar o mistério e tentar salvá-lo. Mas, à medida que mergulham mais fundo no mundo dos livros, eles descobrem que a biblioteca tem poderes e perigos que vão além do que imaginavam. ', 50, 30, 3, 1, 1),
+	(4, 'https://m.media-amazon.com/images/I/91SDZ2eUj+L.jpg', 'Verity', '2018-12-07', '"Verity" é um thriller psicológico de Colleen Hoover que segue a história de Lowen, uma escritora que é contratada para ajudar Verity Crawford a terminar sua série de livros, mas acaba descobrindo um manuscrito perturbador que revela segredos sombrios sobre a família Crawford. Conforme Lowen lê o manuscrito, ela começa a questionar a verdadeira natureza de Verity e se vê cada vez mais envolvida em um perigoso jogo de gato e rato com a família. O livro é uma narrativa envolvente e misteriosa que explora os limites da sanidade e da moralidade. ', 50, 45, 4, 4, 8),
+	(5, 'https://images.tcdn.com.br/img/img_prod/783226/dom_casmurro_1115_1_20200630174117.png', 'Dom Casmurro', '1899-12-05', 'Conta a história de Bento Santiago (Bentinho), apelidado de Dom Casmurro por ser calado e introvertido. Na adolescência, apaixona-se por Capítu, abandonando o seminário e, com ele, os desígnios traçados por sua mãe, Dona Glória, para que se tornasse padre. Casam-se e tudo corre bem, até o amor se tornar ciúme e desconfiança. É esta a grande questão que magistralmente Dom Casmurro expõe ao longo de 148 capítulos: a dúvida que paira ao longo de toda a obra sobre a possibilidade de traição de Capítu, agravada pela extraordinária semelhança do filho de ambos, Ezequiel, com o grande amigo de Bentinho, Escobar. ', 50, 25, 5, 4, 9),
+	(6, 'https://m.media-amazon.com/images/I/311wxEmd-dL.jpg', 'Macunaíma', '1928-05-02', '"Macunaíma" é um romance modernista brasileiro escrito pelo autor Mário de Andrade e publicado em 1928. O livro conta a história de Macunaíma, um herói preguiçoso e sem caráter que nasceu na selva amazônica e parte em busca do "Muiraquitã", uma pedra mágica que pode trazer sorte e poder. Durante sua jornada, Macunaíma se envolve em diversas aventuras, enfrentando obstáculos e lutando contra inimigos, incluindo a própria mãe, uma cobra gigante e a sociedade brasileira do século XX. Com uma linguagem regionalista, o livro explora temas como a identidade nacional, a cultura popular brasileira e a diversidade étnica e cultural do país. A obra é uma crítica social e política à sociedade brasileira da época, abordando temas como o racismo, a exploração colonialista e a desigualdade social. Além disso, o livro também apresenta uma estética modernista, com experimentações literárias e inovações linguísticas. ', 50, 60, 6, 4, 9),
+	(7, 'https://m.media-amazon.com/images/I/81pxnNxcYuL.jpg', 'Um lugar na Janela', '2018-12-07', ' "Um lugar na Janela" é um livro de crônicas de Martha Medeiros. A obra apresenta uma coletânea de reflexões pessoais sobre a vida, o amor, a amizade e as pequenas coisas do dia a dia. Martha compartilha com o leitor suas experiências de viagens, encontros e desencontros, e as observações que faz sobre as pessoas e o mundo ao seu redor. As crônicas são escritas com sensibilidade e um toque de humor, e retratam situações e sentimentos com os quais muitos leitores se identificam. "Um lugar na Janela" é uma obra que convida o leitor a refletir sobre a vida e a apreciar as pequenas coisas que tornam a existência mais rica e significativa.', 50, 35, 7, 5, 2),
+	(8, 'https://m.media-amazon.com/images/I/715jFQMQ8GL.jpg', 'A Moreninha', '1844-09-06', ' A moreninha e um romance do escritor brasileiro Joaquim Manuel de Macedo (1820-1882), publicado em 1844. Esse livro faz parte da fase do romantismo no Brasil, e tem grande sucesso ainda nos dias de hoje. A historia conta sobre Augusto, rapaz que aposta com amigos ( incluso Felipe ) que nao ficaria apaixonado por mais de 15 dias por mulher alguma, sua pena ( em caso de perda) sera a de escrever um romance para estes amigos. O romance A moreninha e o fruto desta aposta (ha aqui um exercicio de metalinguagem). Augusto e estudante e colega de Felipe, cuja irma e Carolina. Augusto quando crianca jurou amar eternamente uma menina cujo nome ignora e fica inconstante em seus amores.', 50, 15, 8, 4, 9),
+	(9, 'https://i0.wp.com/blogbbm.com/wp-content/uploads/2015/10/jornada-ao-oeste-01.jpg?fit=326%2C500&ssl=1', 'Jornada para o Oeste', '2008-03-03', ' Ela retrata a viagem de um monge chamado Xuanzang para a Índia, com o intuito de encontrar escrituras budistas por lá. Acompanhando o monge estão três discípulos: Sun Wukong (também conhecido como Rei Macaco e, em japonês, como Son Goku), Zhu Bajie e Sha Wujing.', 50, 70, 9, 4, 3),
+	(10, 'https://m.media-amazon.com/images/I/51kS4++58fL.jpg', 'Orgulho e Preconceito', '1813-01-02', 'A história se passa na Inglaterra do século XVIII e acompanha a jornada de Elizabeth Bennet, uma jovem inteligente e destemida, e sua relação com o aristocrata Mr. Darcy. No decorrer do livro, Elizabeth se vê envolvida em uma série de encontros e desencontros com Mr. Darcy, que inicialmente a despreza por ser de classe social inferior, mas que acaba se apaixonando por ela. Ao mesmo tempo, Elizabeth precisa lidar com a pressão social e familiar para encontrar um bom partido, enquanto tenta se manter fiel aos seus princípios e desejos pessoais. ', 50, 45, 10, 4, 9),
+	(11, 'https://m.media-amazon.com/images/I/41vXSN7yI5L.jpg', 'Fique comigo', '2017-04-01', 'A história se passa em Ile-Ife, na Nigéria, nas décadas de 1980 e 1990, e segue a vida de Yejide e Akin, um casal que enfrenta muitos desafios para ter um filho. Quando Yejide descobre que Akin está considerando uma segunda esposa para ter um herdeiro, ela é obrigada a tomar medidas desesperadas para manter seu casamento e sua felicidade. Ao longo da história, a autora explora temas como amor, maternidade, família, tradição e modernidade em um contexto cultural rico e complexo. ', 50, 35, 11, 4, 4),
+	(12, 'https://m.media-amazon.com/images/I/91LzeKCuAGL.jpg', 'O Duque e Eu', '2013-01-05', 'A história se passa na Inglaterra do início do século XIX e segue a trajetória de Daphne Bridgerton, a filha mais velha de uma família rica e influente, que está em busca de um marido adequado. Quando Simon Basset, o recém-nomeado Duque de Hastings, retorna a Londres depois de anos vivendo no exterior, ele desperta o interesse das mães da alta sociedade para casar com suas filhas, mas se mostra desinteressado. Daphne e Simon se conhecem em uma festa e decidem fingir um noivado para ajudar a acabar com os avanços indesejados de pretendentes. Mas, à medida que passam mais tempo juntos, sentimentos verdadeiros começam a surgir e eles precisam enfrentar obstáculos para ficarem juntos. ', 50, 30, 12, 4, 5),
+	(13, 'https://m.media-amazon.com/images/I/51lV89906rL._SY344_BO1,204,203,200_QL70_ML2_.jpg', 'O Tempo e o Vento', '1985-06-18', '"O Tempo e o Vento" é uma saga literária escrita pelo autor brasileiro Erico Verissimo. A obra é composta por três volumes: "O Continente", "O Retrato" e "O Arquipélago". A história se passa na região sul do Brasil, começando no século XVIII e abrangendo mais de 200 anos de história. O enredo aborda a vida de várias gerações da família Terra Cambará, que é rica em conflitos, traições, amores e guerras. O romance é marcado pela intensa relação entre a família Terra Cambará e a evolução histórica do Brasil.', 50, 75, 13, 3, 9),
+	(14, 'https://m.media-amazon.com/images/I/71E4YYh-59L.jpg', 'Todo mundo que amei já me fez chorar', '2022-06-15', ' A obra aborda temas como amor, perda, tristeza e a busca por identidade. Cada poema é uma reflexão sobre as emoções humanas, e as experiências pelas quais todos passamos ao longo da vida. A autora usa uma linguagem poética e emocionalmente carregada para transmitir as complexidades das relações humanas e os altos e baixos da jornada da vida. O livro é uma obra tocante e intimista, que convida o leitor a se conectar com as emoções que fazem parte de nossa experiência humana.\r\n\r\n', 50, 40, 14, 3, 7),
+	(15, 'https://www.intrinseca.com.br/upload/livros/image%20(47).png', 'Os Dois Morrem no Final', '2017-12-04', ' A história segue a vida de dois jovens amigos, Mateo e Rufus, que descobrem que terão apenas um dia para viver. Eles se conhecem através de um aplicativo criado para ajudar pessoas a aproveitarem o último dia de suas vidas. Juntos, eles passam seu último dia tentando realizar seus sonhos e desejos, ao mesmo tempo em que lidam com seus medos e arrependimentos. Ao longo da narrativa, a autora explora temas como amizade, amor e morte de maneira inteligente e comovente.', 50, 45, 15, 3, 8),
+	(16, 'https://m.media-amazon.com/images/I/6175PH7eGwL.jpg', 'Your Name (Kimi no na wa)', '2016-10-10', 'Mitsuha Miyamizu é uma jovem que mora no interior do Japão e que deseja deixar sua pequena cidade para trás para tentar a sorte em Tóquio. Enquanto isso, Taki Tachibana, um jovem que trabalha em um restaurante italiano em Tóquio, deseja largar o seu emprego para tentar se tornar um arquiteto. Os dois não se conhecem, mas estão direta e misteriosamente conectados pelas imagens de seus sonhos. ', 50, 80, 16, 3, 1),
+	(17, 'https://m.media-amazon.com/images/I/71VcL8nHI0L.jpg', 'Wotakoi: O Amor é Dificíl para Otakus', '2015-08-02', 'Apesar de Narumi Momose esconder seu gosto por histórias yaoi, seu namorado descobre tal hobby e termina o relacionamento. Para renovar sua vida, ela decide mudar de trabalho e lá acaba encontrando seu amigo de infância, Hirotaka Nifuji, um viciado em vídeo games, que por pouco não revela o segredo de sua amiga. Então, ela decide sugerir um plano para que ele nunca mais fale sobre o assunto, mas não contava com uma contraproposta: por que não começarem a namorar? Obcecados por seus interesses pessoais, será difícil para eles manterem um relacionamento. ', 50, 25, 17, 2, 5),
+	(18, 'https://m.media-amazon.com/images/I/81-OOVzlD+L.jpg', 'A Voz do Silêncio (Koe no Katachi)', '2017-09-17', 'A história começa com a chegada de uma aluna nova numa sala de aula do fundamental, seu nome é Shouko Nishimiya e ela é surda. Devido a deficiência da doce garota, ela acabou por ser vítima de Shouya Ishida que procura formas de chamar a atenção e vencer seu tédio. O garoto faz da vida da nova estudante um inferno, provocando-a e fazendo vários tipos de bullyng com ela. Contudo, uma parte da história culmina numa reviravolta onde o agressor acaba sendo vítima dos seus próprios colegas. Anos depois o caminho dos dois se cruzam novamente, agora no terceiro ano do ensino médio, mas dessa vez Shouya possui um objetivo diferente: se retratar com a garota que tanto magoou. ', 50, 85, 18, 3, 4),
+	(19, 'https://m.media-amazon.com/images/I/612x+rQ0yJL.jpg', 'Death Note', '2013-10-03', 'Um estudante de repente encontra um caderno que caiu do céu. Trata-se do Death Note, que permite ao seu portador matar qualquer pessoa a partir da mera anotação do nome do alvo em uma de suas páginas. Sob a influência de Ruyk, dono do caderno, ele passa a usá-lo para eliminar criminosos e pessoas que escaparam da justiça. A súbita onda de assassinatos faz com que ele seja endeusado por muitos, que o apelidam de Kira, mas também atrai a atenção de um enigmático e brilhante detetive, chamado L. ', 50, 70, 19, 6, 2),
+	(20, 'https://m.media-amazon.com/images/I/71W4KBLnNPL.jpg', 'É Assim que Acaba', '2018-02-28', ' "É assim que acaba" é um romance contemporâneo escrito por Colleen Hoover que segue a história de Lily, uma jovem que está tentando recomeçar sua vida após o fim de um relacionamento abusivo. Ela conhece Ryle, um neurocirurgião bem-sucedido que parece perfeito, mas que esconde segredos sombrios. Conforme a história avança, Lily também se reconecta com Atlas, um amor do passado, e começa a questionar suas escolhas e a confiar em si mesma novamente. No entanto, eventos traumáticos do passado de Lily e de Ryle ameaçam a relação dos dois, e ela se vê obrigada a tomar decisões difíceis sobre o futuro.', 50, 60, 4, 3, 6);
+
+-- Copiando estrutura para tabela bancolivraria.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `idusuarios` int NOT NULL AUTO_INCREMENT,
+  `nome_user` varchar(100) NOT NULL,
+  `senha` varchar(50) NOT NULL,
+  `cpf_user` int NOT NULL,
+  `email_user` varchar(100) NOT NULL,
+  `endereco_user` varchar(100) NOT NULL,
+  `telefone_user` int NOT NULL,
+  PRIMARY KEY (`idusuarios`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+INSERT IGNORE INTO `usuarios` (`idusuarios`, `nome_user`, `senha`, `cpf_user`, `email_user`, `endereco_user`, `telefone_user`) VALUES 
+	(1, 'admin', '123', 212546546, 'equipe@gmail.com','Rua do Inferno', 71966666666);
+
+SELECT * FROM usuarios
+
+-- Copiando dados para a tabela bancolivraria.usuarios: ~0 rows (aproximadamente)
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

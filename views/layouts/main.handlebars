@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style/styleIndex.css" rel="stylesheet" />
+  <link href="https://seel-sp.org.br/site/wp-content/uploads/2019/04/Livro-Logo-SEEL.png" rel="icon" />
+  <title>Estante Mágica</title>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="cont">
+        <div class="logo"><img src="https://live.staticflickr.com/65535/52873737719_62afdb8bf0_o.png">
+        </div>
+        <div class="menu">
+          <nav>
+            <a href="/"><b>Home</b></a>
+            <a href="generos.html"><b>Generos</b></a>
+            <a href="#h3"><b>Livros</b></a>
+             <a href="/favoritos"><b>Favoritos</b></a>
+            <a href="login.html"><b>Login</b></a>
+            <a href="cadastro.html"><b>Cadastro</b></a>
+          </nav>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section id="fund1">
+    <div id="inform1">
+      <div id="tit1">
+        <h1>
+          Estante Mágica
+        </h1>
+        <p id="subtit1">Onde você desperta a sua imaginação!!</p>
+      </div>
+    </div>
+  </section>
+
+  <ul class="slider">
+    <li>
+      <input type="radio" id="slide1" name="slide" checked>
+      <label for="slide1"></label>
+      <img src="imgs/carrousel1.png"style="width:100%;" />
+    </li>
+    <li>
+      <input type="radio" id="slide2" name="slide">
+      <label for="slide2"></label>
+      <img src="imgs/carrousel2.png"style="width:100%;" />
+    </li>
+    <li>
+      <input type="radio" id="slide3" name="slide">
+      <label for="slide3"></label>
+      <img src="imgs/carrousel3.png"style="width:100%;" />
+    </li>
+  </ul>
+  <div id="espacoTemporario"></div>
+
+  <section class="livros">
+    <h3 id="h3">LIVROS</h3>
+    <h4>MAIS VENDIDOS</h4>
+    <div id="MaisVendidos">
+      {{{body}}}
+    </div>
+  </section>
+
+  <footer>
+    
+    <form>
+      <h6 id="h6">Cadastre-se:</h6>
+      <p>Informe seu e-mail e nome abaixo para receber
+        <br>mais novidades sobre livros:
+      </p>
+      <label>
+        <input type="text" name="nome" id="nome" placeholder="Nome">
+        <br>
+        <input type="email" name="email" id="email" placeholder="E-mail">
+      </label>
+      <br /><br />
+      <button class="buttonClass">Inscrever-se</button>
+    </form>
+
+    <div>
+      <div id="Devlop">
+        <p> <b>Livraria Online desenvolvida pelo os alunos (as) do IFBA Campus Santo Amaro.</b>
+          <br><br>
+          <i>Elias Cosme, Keylane Ferreira, Luan Moreira, Poliana Oliveira e Victor Gabriel.</i>
+          <br><br>
+          <b>Sobre a orientação do professor Alexandre da Costa e Silva.</b>
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

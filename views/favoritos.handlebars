@@ -1,0 +1,22 @@
+{{#if mensagem}}
+    <script>alert("{{mensagem}}");</script>
+{{/if}}
+
+<center>
+<table id="tablelist" border="1px">
+    <tr>
+        <th>Usuario</th>
+        <th>Codigo Livro</th>
+        <th>Titulo</th>
+        <th>Opções</th>
+    </tr>
+    {{#each result}}
+        <tr>
+        <td>{{idusuarios}}</td>
+        <td>{{idlivros}}</td>
+        <td>{{titulo}}</td>
+        <td><div id="opt"><a id="x" onclick="return confirm('Confirma a exclusão?')" href="http://localhost/deletar?idfavoritos={{idfavoritos}}">X</a></div></td>
+        </tr>
+    {{/each}}
+</table>
+</center>

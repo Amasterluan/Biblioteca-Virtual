@@ -1,0 +1,41 @@
+<center>
+<form id="frmcad" action={{#if result}}'http://localhost/alterardados'{{else}}'http://localhost/salvardados'{{/if}}>
+    <label>Imagem
+        <input type=text name='imagem' {{#if result}}value='{{result.imagem}}'{{/if}} size=30/>
+    </label><br>
+        <br><br>
+    <label>Título do Livro
+    <input type=text name='titulo_livro' {{#if result}}value='{{result.titulo_livro}}'{{/if}} size=30/>
+    </label><br>
+        <br><br>
+        <label>Ano de Publicação
+        <input type=date name='anopublicacao' {{#if result}}value='{{result.anopublicacao}}'{{/if}}/>
+    </label><br>
+        <br><br>
+        <label>Descrição
+        <input type=text name='descricao' {{#if result}}value='{{result.descricao}}'{{/if}} size=30/>
+    </label><br>
+        <br><br>
+        <label>Estoque
+        <input type=number name='estoque' {{#if result}}value='{{result.estoque}}'{{/if}}/>
+    </label><br>
+        <br><br>
+    <label>Preço
+        <input type=number name='preco' {{#if result}}value='{{result.preco}}'{{/if}}/>
+    </label><br>
+        <br><br>
+    <label>Autor
+        <input type=checkbox name='idautores' {{#if result}}value='{{result.idautores}}'{{/if}}/>
+    </label><br>
+        <br><br>
+    <label>Gênero
+        <input type=checkbox name='idgeneros' {{#if result}}value='{{result.idgeneros}}'{{/if}}/>
+    </label><br>
+        <br><br>
+    <label>Editora
+        <input type=checkbox name='ideditora' {{#if result}}value='{{result.ideditora}}'{{/if}}/>
+    </label><br>
+        <br><br>
+    <input type=submit value={{#if result}}'Alterar'{{else}}'Cadastrar'{{/if}}>
+</form>
+</center>
